@@ -1,4 +1,4 @@
-
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -13,7 +13,9 @@ public class Door : MonoBehaviour
         {
             Debug.Log("Porte Ouverte ");
 
-            Destroy(gameObject);
+            
+
+            SceneManager.LoadScene("scene2");
         }
     }
 }
