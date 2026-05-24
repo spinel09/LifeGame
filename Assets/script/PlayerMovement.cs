@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
+    public bool hasKey = false;
+
     private Animator anim;
     
     public float speed = 5f;
@@ -36,5 +38,17 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         rb.linearVelocity = movement * speed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Key"))
+        {
+            hasKey = true;
+
+            Destroy(other.gameObject);
+
+            Debug.Log("Clé récupérée !");
+        }
     }
 }
